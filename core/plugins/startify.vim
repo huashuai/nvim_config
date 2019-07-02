@@ -30,3 +30,5 @@ endfunction
 
 let g:startify_custom_header = s:center(s:header)
 let g:startify_custom_footer = s:center(s:footer)
+
+let g:startify_session_persistence = 1
