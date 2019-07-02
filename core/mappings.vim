@@ -2,7 +2,7 @@
 inoremap <C-w> <C-[>diwa
 inoremap <C-h> <BS>
 inoremap <C-d> <Del>
-inoremap <C-k>  <ESC>d$
+inoremap <C-k>  <ESC>d$a
 inoremap <C-u> <C-G>u<C-U>
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
@@ -49,7 +49,6 @@ vnoremap k gk
 nmap <leader>tt :tabnew
 nmap <leader>tn :tabnew<cr>
 nmap <leader>te :tabedit
-nmap <leader>tc :tabclose<cr>
 nmap <leader>tm :tabmove
 
 "yank to end
@@ -61,3 +60,6 @@ nmap <C-w>] :vertical resize +3<CR>
 
 " Remove spaces at the end of lines
 nnoremap <silent> ,<Space> :<C-u>silent! keeppatterns %substitute/\s\+$//e<CR>
+
+" a command which  edit PLugin config easy
+nnoremap <leader>p :EditPluginSetting <Space>

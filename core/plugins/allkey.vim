@@ -83,7 +83,9 @@ if dein#tap('coc.nvim')
         " float window scroll
 		nnoremap <expr><C-f> coc#util#has_float() ? coc#util#float_scroll(1) : "\<C-f>"
 		nnoremap <expr><C-b> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
-
+        nmap <silent> <TAB> <Plug>(coc-range-select)
+        xmap <silent> <TAB> <Plug>(coc-range-select)
+        xmap <silent> <S-TAB> <Plug>(coc-range-select-backword)
 endif
 
 function! s:show_documentation()
@@ -96,7 +98,7 @@ endfunction
 
 if dein#tap('fzf.vim')
         nnoremap <silent> <leader>fc :Colors<CR>
-        nnoremap <silent> <localleader>b :Buffers<CR>
+        nnoremap <silent> <leader>fb :Buffers<CR>
         nnoremap <silent> <leader>ff :call Fzf_dev()<CR>
         nnoremap <silent> <leader>fr :Rg<CR>
         nnoremap <silent> <leader>fw :Rg <C-R><C-W><CR>
@@ -111,15 +113,11 @@ endif
 
 
 if dein#tap('vim-go')
-     autocmd MyAutoCmd FileType go
-                    \  nmap <Leader>gov <Plug>(go-def-vertical)
-                    \ | nmap <Leader>goi <Plug>(go-info)
-                    \ | nmap <Leader>god <Plug>(go-doc)
-                    \ | nmap <leader>gor <Plug>(go-run)
-                    \ | nmap <leader>gob <Plug>(go-build)
-                    \ | nmap <leader>got <Plug>(go-test)
-                    \ | nmap <leader>goc <Plug>(go-coverage)
-                    \ | nmap <Leader>gr  <Plug>(go-rename)
+	 nnoremap <silent> <leader>gi :GoImpl<CR>
+	 nnoremap <silent> <Leader>gd :GoDescribe<CR>
+	 nnoremap <silent> <Leader>gc :GoCallees<CR>
+	 nnoremap <silent> <Leader>gC :GoCallers<CR>
+	 nnoremap <silent> <Leader>gs :GoCallstack<CR>
 endif
 
 if dein#tap('vim-easygit')
@@ -172,6 +170,11 @@ if dein#tap('comfortable-motion.vim')
     nnoremap <silent> <C-b> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -4)<CR>
 endif
 
+if dein#tap('python_match.vim')
+	nmap <buffer> {{ [%
+	nmap <buffer> }} ]%
+endif
+
 if dein#tap('goyo.vim')
 	nnoremap <Leader>G :Goyo<CR>
 endif
@@ -181,6 +184,11 @@ if dein#tap('defx.nvim')
                 \ :<C-u>Defx -resume -toggle -buffer-name=tab`tabpagenr()`<CR>
         "nnoremap <silent> <LocalLeader>a
 				"\ :<C-u>Defx -resume -buffer-name=tab`tabpagenr()` -search=`expand('%:p')`<CR>
+endif
+
+if dein#tap('nerdtree')
+        "nerdtree
+        nnoremap <silent><localleader>e :NERDTreeToggle <CR>
 endif
 
 if dein#tap('vim-startify')
@@ -209,6 +217,7 @@ endif
 
 if dein#tap('vista.vim')
         nnoremap <silent><localleader>v :Vista!!<CR>
+        nnoremap <silent><leader>fv :Vista finder coc<CR>
 endif
 
 if dein#tap('tagbar')
@@ -233,13 +242,41 @@ if dein#tap('vim-which-key')
 		nnoremap <silent>]              :<c-u>WhichKey  ']'<CR>
 endif
 
-if dein#tap('vim-operator-surround')
-        map <silent>sa <Plug>(operator-surround-append)
-        map <silent>sd <Plug>(operator-surround-delete)
-        map <silent>sr <Plug>(operator-surround-replace)
-        nmap <silent>saa <Plug>(operator-surround-append)<Plug>(textobj-multiblock-i)
-        nmap <silent>sdd <Plug>(operator-surround-delete)<Plug>(textobj-multiblock-a)
-        nmap <silent>srr <Plug>(operator-surround-replace)<Plug>(textobj-multiblock-a)
+if dein#tap('vim-smartchr')
+    augroup MyAutoCmd
+        autocmd FileType go inoremap <buffer><expr> ;
+            \ smartchr#loop(':=',';')
+    augroup end
+endif
+
+if dein#tap('vim-niceblock')
+	xmap I  <Plug>(niceblock-I)
+	xmap A  <Plug>(niceblock-A)
+endif
+
+if dein#tap('vim-sandwich')
+     nmap <silent> sa <Plug>(operator-sandwich-add)
+     xmap <silent> sa <Plug>(operator-sandwich-add)
+     omap <silent> sa <Plug>(operator-sandwich-g@)
+     nmap <silent> sd <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
+     xmap <silent> sd <Plug>(operator-sandwich-delete)
+     nmap <silent> sr <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
+     xmap <silent> sr <Plug>(operator-sandwich-replace)
+     nmap <silent> sdb <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)
+     nmap <silent> srb <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)
+     omap ib <Plug>(textobj-sandwich-auto-i)
+    xmap ib <Plug>(textobj-sandwich-auto-i)
+    omap ab <Plug>(textobj-sandwich-auto-a)
+    xmap ab <Plug>(textobj-sandwich-auto-a)
+
+    omap is <Plug>(textobj-sandwich-query-i)
+    xmap is <Plug>(textobj-sandwich-query-i)
+    omap as <Plug>(textobj-sandwich-query-a)
+    xmap as <Plug>(textobj-sandwich-query-a)
+endif
+
+if dein#tap('vim-operator-replace')
+	xmap p <Plug>(operator-replace)
 endif
 
 if dein#tap('vim-textobj-multiblock')
@@ -248,16 +285,3 @@ if dein#tap('vim-textobj-multiblock')
 	xmap <silent> ab <Plug>(textobj-multiblock-a)
 	xmap <silent> ib <Plug>(textobj-multiblock-i)
 endif
-
-if dein#tap('bps/vim-textobj-python')
-        xmap aF <Plug>(textobj-python-function-a)
-        omap aF <Plug>(textobj-python-function-a)
-        xmap iF <Plug>(textobj-python-function-i)
-        omap iF <Plug>(textobj-python-function-i)
-endif
-
-"if dein#tap('nerdtree')
-        ""nerdtree
-        "nnoremap <silent><leader>e :NERDTreeToggle <CR>
-        ""nnoremap <leader>f :NERDTreeFind <CR>
-"endif

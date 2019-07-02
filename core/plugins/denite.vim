@@ -35,12 +35,11 @@ call denite#custom#option('jump', { 'start_filter': 0 })
 call denite#custom#option('git', { 'start_filter': 0 })
 call denite#custom#option('mpc', { 'winheight': 20 })
 
-call denite#custom#source('file/rec,file_mru,file/old,buffer,directory/rec,directory_mru', 'converters', ['devicons_denite_converter'])
 
 " MATCHERS
 " Default is 'matcher/fuzzy'
 call denite#custom#source('tag', 'matchers', ['matcher/substring'])
-" call denite#custom#source('file/rec', 'matchers', ['matcher/fruzzy'])
+call denite#custom#source('file/rec', 'matchers', ['matcher/fruzzy'])
 
 if has('nvim') && &runtimepath =~# '\/cpsm'
 	call denite#custom#source(
@@ -48,15 +47,12 @@ if has('nvim') && &runtimepath =~# '\/cpsm'
 		\ 'matchers', ['matcher/cpsm', 'matcher/fuzzy'])
 endif
 
-" SORTERS
-" Default is 'sorter/rank'
-call denite#custom#source('z', 'sorters', ['sorter_z'])
 
 " CONVERTERS
 " Default is none
 call denite#custom#source(
-	\ 'buffer,file_mru,file/old',
-	\ 'converters', ['converter_relative_word'])
+	\ 'buffer,file_mru,file/old,file/rec,directory/rec,directory_mru',
+	\ 'converters', ['devicons_denite_converter','converter_relative_word'])
 
 " FIND and GREP COMMANDS
 if executable('ag')
@@ -108,8 +104,8 @@ function! s:denite_settings() abort
 	nnoremap <silent><buffer><expr> d    denite#do_map('do_action', 'delete')
 	nnoremap <silent><buffer><expr> p    denite#do_map('do_action', 'preview')
 	nnoremap <silent><buffer><expr> st   denite#do_map('do_action', 'tabopen')
-	nnoremap <silent><buffer><expr> sg   denite#do_map('do_action', 'vsplit')
-	nnoremap <silent><buffer><expr> sv   denite#do_map('do_action', 'split')
+	nnoremap <silent><buffer><expr> sv   denite#do_map('do_action', 'vsplit')
+	nnoremap <silent><buffer><expr> si   denite#do_map('do_action', 'split')
 	nnoremap <silent><buffer><expr> '    denite#do_map('quick_move')
 	nnoremap <silent><buffer><expr> q    denite#do_map('quit')
 	nnoremap <silent><buffer><expr> r    denite#do_map('redraw')

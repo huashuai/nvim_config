@@ -6,22 +6,22 @@
 
 ## Commic Custom
 
-| ACG                                                                                                              | 狂赌之渊                                                                                                       |
-| ---------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| <img src="https://github.com/taigacute/IMG/blob/master/thinkvim/gruvbox9thinkvim.png" width="480"  height="300"> | <img src="https://github.com/taigacute/IMG/blob/master/thinkvim/kuangdushenyuan.png" width="480" height="300"> |
+| ACG                                                                                                              | Spaceline                                                                                                 |
+| ---------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| <img src="https://github.com/taigacute/IMG/blob/master/thinkvim/gruvbox9thinkvim.png" width="480"  height="300"> | <img src="https://github.com/taigacute/IMG/blob/master/spaceline/spaceline.png" width="480" height="300"> |
 
 ## [中文](README-CN.md)
 
 ## Feature
 
-- Fatest StartupTime(40-60ms)
-- Modular Plugin Config
-- Easy to use Easy to hack
-- 95% plugins lazyload with dein
-- Centerd on Coc.nvim, Denite auxiliary
-- Autocompletion by lsp which coc.nvim support
-- Fully customizable
-- Comfortable theme gruvbox9
+- 🚀Fatest StartupTime(Plugins Total:63 40-60ms)
+- 💎Modular Plugin Config
+- ⚒ Easy to use Easy to hack
+- 🌟95% plugins lazyload with dein
+- ⚡️Centerd on Coc.nvim, Denite auxiliary
+- 🎱Autocompletion by lsp which coc.nvim support
+- ⚔️ Fully customizable
+- 🌈Comfortable theme gruvbox9
 
 ## Required Env
 
@@ -36,23 +36,42 @@
 
 - rg (Ripgrep): [BurntSushi/ripgrep](https://github.com/BurntSushi/ripgrep)
 - Universal ctags: [ctags.io](https://ctags.io/)
+  - mac `brew install --HEAD universal-ctags/universal-ctags/universal-ctags`
+  - ubuntu
+    ```
+    # install libjansson first
+    sudo apt-get install libjansson-dev
+    # then compile and install ctags
+    ```
 - Rouge : `sudo gem install rouge`
 
 ## Install
 
 **_1._**
 
+- install master branch
+
 ```
 git clone --depth=1 https://github.com/taigacute/ThinkVim.git ~/.config/nvim
 ```
 
+- Notice!! I made a new statusline call [spaceline.vim](https://github.com/taigacute/spaceline.vim),if you want use spaceline version,install dev branch
+
+```
+git clone -b -dev https://github.com/taigacute/ThinkVim.git ~/.config/nvim
+```
+
+- Note: If your system sets \$XDG_CONFIG_HOME, use that instead of ~/.config in the code above. Nvim follows the XDG base-directories convention.
+
 **_2._** open the nvim ,it will auto install dein and plugins,when the plugins install success,it will install coc extensions.
+
+**_3._** if you see the coc extesions installed success in your vim commandline .Congratulations‼️
 
 ## [Language servers](https://github.com/neoclide/coc.nvim/wiki/Language-servers)
 
 - [More about Coc](https://github.com/neoclide/coc.nvim)
 - The list is the lsp which coc.nvim support,[Coc Wiki](https://github.com/neoclide/coc.nvim/wiki/Language-servers)
-
+- ThinkVim support javascript typescript python.you dont need to install js ts python server.
 - [Supported features](https://github.com/neoclide/coc.nvim/wiki/Language-servers#supported-features)
 - [Register custom language servers](https://github.com/neoclide/coc.nvim/wiki/Language-servers#register-custom-language-servers)
 
@@ -105,8 +124,10 @@ git clone --depth=1 https://github.com/taigacute/ThinkVim.git ~/.config/nvim
     - [colorscheme](~/.config/nvim/after/autoload/lightline/colorscheme) - lightline colorscheme
 - [core/](~/.config/nvim/rc) - core config file
   - [dein](~/.config/nvim/rc/dein) - _**Plugins list!**_
-    - [dein.toml](~/.config/nvim/rc/dein/dein.toml) - Normal Load Plugins
-    - [deinlazy.toml](~/.config/nvim/rc/dein/deinlazy.toml) - LazyLoad Plugins
+    - [plugins.yaml](~/.config/nvim/rc/dein/plugins.yaml) - ThinkVim plugins
+  - [local](/local) - your custom settings
+    - [local_plugins.yaml](/local/local_plugins.yaml) - your plugins
+    - [local_settings.vim](/local/local_settings.vim) - your vim settings
   - [plugins](~/.config/nvim/rc/plugins) - _**Plugins Config!**_
   - [init.vim](~/.config/nvim/rc/init.vim) - `runtimepath`
   - [dein.vim](~/.config/nvim/rc/dein.vim) - Dein Config
@@ -128,53 +149,62 @@ git clone --depth=1 https://github.com/taigacute/ThinkVim.git ~/.config/nvim
 
 ## LazyLoadPlugins
 
-| Name                                                                                         | Description                                         |
-| -------------------------------------------------------------------------------------------- | --------------------------------------------------- |
-| [ludovicchabant/vim-gutentags](https://github.com/ludovicchabant/vim-gutentags)              | Provide ctags/gtags                                 |
-| [mhinz/vim-startify](https://github.com/mhinz/vim-startify)                                  | Startify                                            |
-| [tyru/caw.vim](https://github.com/tyru/caw.vim)                                              | Comment Plugins                                     |
-| [t9md/vim-choosewin](https://github.com/t9md/vim-choosewin)                                  | Easy to jump window                                 |
-| [ryanoasis/vim-devicons](https://github.com/ryanoasis/vim-devicons)                          | Provide the Icons                                   |
-| [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)                                  | Git Plugins                                         |
-| [junegunn/fzf.vim](https://github.com/junegunn/fzf.vim)                                      | Search File Word                                    |
-| [hona/dockerfile.vim](https://github.com/hona/dockerfile.vim)                                | Dockerfile Supporte                                 |
-| [junegunn/vim-easyalign](https://github.com/junegunn/vim-easyalign)                          | Easy Align                                          |
-| [junegunn/goyo.vim](https://github.com/junegunn/goyo.vim)                                    | Distraction-free writing                            |
-| [junegunn/limelight](https://github.com/junegunn/limelight)                                  | Hyperfocus-writing                                  |
-| [Yggdroot/indentLine](https://github.com/Yggdroot/indentLine)                                | Indent Line                                         |
-| [tpope/vim-repeat](https://github.com/tpope/vim-repeat)                                      | Operate Repeat                                      |
-| [sbdchd/neoformat](https://github.com/sbdchd/neoformat)                                      | Format                                              |
-| [yuttie/comfortable-motion.vim](https://github.com/yonchu/yuttie/comfortable-motion.vim)     | Scroll                                              |
-| [chemzqm/vim-easygit](https://github.com/chemzqm/vim-easygit)                                | Git wrapper focus on simplity and usability         |
-| [chemzqm/denite-git](https://github.com/chemzqm/denite-git)                                  | gitlog, gitstatus and gitchanged sources            |
-| [thinca/quickrun](https://github.com/thinca/quickrun)                                        | Quick Run                                           |
-| [tpope/vim-markdown](https://github.com/tpope/vim-markdown)                                  | Markdown syntax highlighting                        |
-| [junegunn/vim-emoji](https://github.com/junegunn/vim-emoji)                                  | emoji                                               |
-| [simnalamburt/vim-mundo](https://github.com/simnalamburt/vim-mundo)                          | Ultimate mundo history visualizer                   |
-| [kana/vim-textobj-user](https://github.com/kana/vim-textobj-user)                            | Create your own text objects                        |
-| [kana/vim-operator-user](https://github.com/kana/vim-operator-user)                          | Define your own custom operators                    |
-| [osyo-manga/vim-textobj-multiblock](https://github.com/osyo-manga/vim-textobj-multiblock)    | Handle bracket objects                              |
-| [rhysd/vim-operator-surround](https://github.com/rhysd/vim-operator-surround)                | Operator to enclose text objects                    |
-| [rhysd/accelerated-jk](https://github.com/rhysd/accelerated-jk)                              | Up/down movement acceleration                       |
-| [bps/vim-textobj-python](https://github.com/bps/vim-textobj-python)                          | pythontextobject                                    |
-| [mg979/vim-visual-multi](https://github.com/mg979/vim-visual-multi)                          | Multiple cursors project                            |
-| [terryma/vim-expand-region](https://github.com/terryma/vim-expand-region)                    | Visually select increasingly larger regions of text |
-| [liuchengxu/vim-which-key](https://github.com/liuchengxu/vim-which-key)                      | Find the key                                        |
-| [easymotion/vim-easymotion](https://github.com/easymotion/vim-easymotion)                    | Vim motions on speed                                |
-| [Shougo/defx.nvim](https://github.com/Shougo/defx.nvim)                                      | Dark powered file explorer implementation           |
-| [kristijanhusak/defx-icons](https://github.com/https://github.com/kristijanhusak/defx-icons) | Filetype icons for Defx                             |
-| [airblade/vim-gitgutter](https://github.com/airblade/vim-gitgutter)                          | Git status implementation for Defx                  |
-| [majutsushi/tagbar](https://github.com/majutsushi/tagbar)                                    | Displays tags in a window, ordered by scope         |
-| [liuchengxu/vista.vim](https://github.com/liuchengxu/vista.vim)                              | Viewer & Finder for LSP symbols and tags            |
-| [mattn/emmet-vim](https://github.com/mattn/emmet-vim)                                        | coc-emmet instead                                   |
-| [Shougo/denite.nvim](https://github.com/Shougo/denite.nvim)                                  | Dark powered asynchronous unite all interfaces      |
-| [w0rp/ale](https://github.com/w0rp/ale)                                                      | Check syntax in Vim asynchronously and fix files    |
-| [othree/html5.vim](https://github.com/othree/html5.vim)                                      | HTML5 omnicomplete and syntax Worked with coc-html  |
-| [neoclide/vim-jsx-improve](https://github.com/neoclide/vim-jsx-improve)                      | js jsx                                              |
-| [fatih/vim-go](https://github.com/fatih/vim-go)                                              | go development                                      |
-| [elzr/vim-json](https://github.com/elzr/vim-json)                                            | json                                                |
-| [cespare/vim-toml](https://github.com/cespare/vim-toml)                                      | toml                                                |
-| [vim-scripts/xml.vim](https://github.com/vim-scripts/xml.vim)                                | xml                                                 |
+| Name                                                                                                  | Description                                                                        |
+| ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| [ludovicchabant/vim-gutentags](https://github.com/ludovicchabant/vim-gutentags)                       | Provide ctags/gtags                                                                |
+| [mhinz/vim-startify](https://github.com/mhinz/vim-startify)                                           | Startify                                                                           |
+| [tyru/caw.vim](https://github.com/tyru/caw.vim)                                                       | Comment Plugins                                                                    |
+| [t9md/vim-choosewin](https://github.com/t9md/vim-choosewin)                                           | Easy to jump window                                                                |
+| [ryanoasis/vim-devicons](https://github.com/ryanoasis/vim-devicons)                                   | Provide the Icons                                                                  |
+| [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)                                           | Git Plugins                                                                        |
+| [junegunn/fzf.vim](https://github.com/junegunn/fzf.vim)                                               | Search File Word                                                                   |
+| [hona/dockerfile.vim](https://github.com/hona/dockerfile.vim)                                         | Dockerfile Supporte                                                                |
+| [junegunn/vim-easyalign](https://github.com/junegunn/vim-easyalign)                                   | Easy Align                                                                         |
+| [junegunn/goyo.vim](https://github.com/junegunn/goyo.vim)                                             | Distraction-free writing                                                           |
+| [junegunn/limelight](https://github.com/junegunn/limelight)                                           | Hyperfocus-writing                                                                 |
+| [Yggdroot/indentLine](https://github.com/Yggdroot/indentLine)                                         | Indent Line                                                                        |
+| [tpope/vim-repeat](https://github.com/tpope/vim-repeat)                                               | Operate Repeat                                                                     |
+| [sbdchd/neoformat](https://github.com/sbdchd/neoformat)                                               | Format                                                                             |
+| [yuttie/comfortable-motion.vim](https://github.com/yonchu/yuttie/comfortable-motion.vim)              | Scroll                                                                             |
+| [chemzqm/vim-easygit](https://github.com/chemzqm/vim-easygit)                                         | Git wrapper focus on simplity and usability                                        |
+| [chemzqm/denite-git](https://github.com/chemzqm/denite-git)                                           | gitlog, gitstatus and gitchanged sources                                           |
+| [thinca/quickrun](https://github.com/thinca/quickrun)                                                 | Quick Run                                                                          |
+| [tpope/vim-markdown](https://github.com/tpope/vim-markdown)                                           | Markdown syntax highlighting                                                       |
+| [junegunn/vim-emoji](https://github.com/junegunn/vim-emoji)                                           | emoji                                                                              |
+| [simnalamburt/vim-mundo](https://github.com/simnalamburt/vim-mundo)                                   | Ultimate mundo history visualizer                                                  |
+| [kana/vim-textobj-user](https://github.com/kana/vim-textobj-user)                                     | Create your own text objects                                                       |
+| [kana/vim-operator-user](https://github.com/kana/vim-operator-user)                                   | Define your own custom operators                                                   |
+| [osyo-manga/vim-textobj-multiblock](https://github.com/osyo-manga/vim-textobj-multiblock)             | Handle bracket objects                                                             |
+| [machakann/vim-sandwich](https://github.com/rhysd/machakann/vim-sandwich)                             | set of operatorandtextobject plugins to search/select/edit sandwiched textobjects. |
+| [kana/vim-operator-replace](https://github.com/kana/vim-operator-replace)                             | Operator to replace text with register content                                     |
+| [rhysd/accelerated-jk](https://github.com/rhysd/accelerated-jk)                                       | Up/down movement acceleration                                                      |
+| [mg979/vim-visual-multi](https://github.com/mg979/vim-visual-multi)                                   | Multiple cursors project                                                           |
+| [terryma/vim-expand-region](https://github.com/terryma/vim-expand-region)                             | Visually select increasingly larger regions of text                                |
+| [liuchengxu/vim-which-key](https://github.com/liuchengxu/vim-which-key)                               | Find the key                                                                       |
+| [easymotion/vim-easymotion](https://github.com/easymotion/vim-easymotion)                             | Vim motions on speed                                                               |
+| [Shougo/defx.nvim](https://github.com/Shougo/defx.nvim)                                               | Dark powered file explorer implementation                                          |
+| [kristijanhusak/defx-icons](https://github.com/https://github.com/kristijanhusak/defx-icons)          | Filetype icons for Defx                                                            |
+| [scrooloose/nerdtree](https://github.com/scrooloose/nerdtree)                                         | File manager                                                                       |
+| [Xuyuanp/nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin)                         | Nerdtree git plugin                                                                |
+| [tiagofumo/vim-nerdtree-syntax-highlight](https://github.com/tiagofumo/vim-nerdtree-syntax-highlight) | Nerdtree Synatax Highlight                                                         |
+| [scrooloose/nerdtree](https://github.com/scrooloose/nerdtree)                                         | File manager                                                                       |
+| [airblade/vim-gitgutter](https://github.com/airblade/vim-gitgutter)                                   | Git status implementation for Defx                                                 |
+| [airblade/vim-rooter](https://github.com/airblade/vim-rooter)                                         | Changes Vim working directory to project root                                      |
+| [majutsushi/tagbar](https://github.com/majutsushi/tagbar)                                             | Displays tags in a window, ordered by scope                                        |
+| [liuchengxu/vista.vim](https://github.com/liuchengxu/vista.vim)                                       | Viewer & Finder for LSP symbols and tags                                           |
+| [mattn/emmet-vim](https://github.com/mattn/emmet-vim)                                                 | coc-emmet instead                                                                  |
+| [Shougo/denite.nvim](https://github.com/Shougo/denite.nvim)                                           | Dark powered asynchronous unite all interfaces                                     |
+| [w0rp/ale](https://github.com/w0rp/ale)                                                               | Check syntax in Vim asynchronously and fix files                                   |
+| [othree/html5.vim](https://github.com/othree/html5.vim)                                               | HTML5 omnicomplete and syntax Worked with coc-html                                 |
+| [neoclide/vim-jsx-improve](https://github.com/neoclide/vim-jsx-improve)                               | js jsx                                                                             |
+| [vim-python/python-syntax](https://github.com/vim-python/python-syntax)                               | Enhanced version of the original Python syntax                                     |
+| [Vimjas/vim-python-pep8-index](https://github.com/Vimjas/vim-python-pep8-index)                       | A nicer Python indentation style                                                   |
+| [vim-scripts/python_match.vx](https://github.com/vim-scripts/python_match)                            | Extend the % motion for Python files                                               |
+| [tmhedberg/SimpylFold](https://github.com/tmhedberg/SimpylFold)                                       | No-BS Python code folding                                                          |
+| [fatih/vim-go](https://github.com/fatih/vim-go)                                                       | go development                                                                     |
+| [elzr/vim-json](https://github.com/elzr/vim-json)                                                     | json                                                                               |
+| [cespare/vim-toml](https://github.com/cespare/vim-toml)                                               | toml                                                                               |
+| [vim-scripts/xml.vim](https://github.com/vim-scripts/xml.vim)                                         | xml                                                                                |
 
 ## CoC Extensions
 
@@ -197,6 +227,11 @@ git clone --depth=1 https://github.com/taigacute/ThinkVim.git ~/.config/nvim
 | [coc-highlight](https://github.com/neoclide/coc-highlight) | Highlight the cursors word, Show the css color |
 | [coc-git](https://github.com/neoclide/coc-git)             | git extension                                  |
 | [coc-post](https://github.com/iamcco/coc-post)             | easy to use like postman                       |
+
+## Custom ‼️
+
+- if you need some plugins which not in Thinkvim ,you can add them into the `local/local_plugins.yaml`, the `plugins.yaml`is thinkvim plugins file.
+- i think split the user plugins and thinkvim plugins in two files looks like good. this way cant break the thinkvim and easy to use.if you dont like `local` you can delete it .it doesnt effect thinkvim. but my advice is you can use `local` unless you have vimscript skill and you grasp this config
 
 ## ColorScheme
 
@@ -221,6 +256,10 @@ git clone --depth=1 https://github.com/taigacute/ThinkVim.git ~/.config/nvim
   | coc-snippet  | `Ⓢ`  |
   | go file      | `Ⓖ`  |
 
+- [spaceline](https://github.com/taigacute/spaceline.vim)
+
+  ![image](https://github.com/taigacute/IMG/blob/master/spaceline/error.png)
+
 ## [Defx.nvim](https://github.com/Shougo/defx.nvim)
 
 - Defx provide more features,The defx is very fatest than nerdtree when you open multifiles.
@@ -233,7 +272,8 @@ git clone --depth=1 https://github.com/taigacute/ThinkVim.git ~/.config/nvim
 
 - Default leader `SPACE` localleader`;` ,The vim keymap in `mappings.vim`,Plugins keymap in `core/plugins/allkey.vim`
 - Insertkey like emacs
-- Note that some keymaps are missing in the lists ，I will take time to find it out and fix the lists
+- if you find the keymap doesnt work , Or the keymap doesnt show in this keylist but in `allkey.vim` ,you can create
+  a isse. Welcome PR.
 
 | Keys        | Mode    | Description                             |
 | ----------- | ------- | --------------------------------------- |
@@ -263,7 +303,7 @@ git clone --depth=1 https://github.com/taigacute/ThinkVim.git ~/.config/nvim
 | k           | Normal  | gk                                      |
 | j           | Visual  | gj                                      |
 | k           | Visual  | gj                                      |
-| -           | Visual  | ChooseWin                               |
+| -           | Noraml  | ChooseWin                               |
 | , + `Space` | Normal  | Delete trailing spaces                  |
 | [ + a       | Normal  | Ale next                                |
 | ] + a       | Normal  | Ale pre                                 |
@@ -303,54 +343,55 @@ git clone --depth=1 https://github.com/taigacute/ThinkVim.git ~/.config/nvim
 
 | Keys            | Mode   | Description |
 | --------------- | ------ | ----------- |
-| `<Leader>` + tb | Normal | create tab  |
+| `<Leader>` + tn | Normal | create tab  |
 | `<Leader>` + te | Normal | edit tab    |
-| `<Leader>` + tc | Normal | close tab   |
 | `<Leader>` + tm | Normal | move tab    |
 
 - LeaderKey
 
-| Keys                        | Mode   | Description                   |
-| --------------------------- | ------ | ----------------------------- |
-| `<Leader>` + number           | Normal | number[0-9] choose buffer     |
-| `<Leader>` + ca             | Normal | CocDiagnostics                |
-| `<Leader>` + cc             | Normal | CocCommands                   |
-| `<Leader>` + ce             | Normal | CocExtensions                 |
-| `<Leader>` + cj             | Normal | Cocnext                       |
-| `<Leader>` + ck             | Normal | CocPrev                       |
-| `<Leader>` + co             | Normal | CocOutline                    |
-| `<Leader>` + cr             | Normal | CocResume                     |
-| `<Leader>` + cs             | Normal | CocIsymbols                   |
-| `<Leader>` + G              | Normal | open Goyo                     |
-| `<Leader>` + m              | Normal | open mundo                    |
-| `<Leader>` + w              | Normal | save file                     |
-| `<Leader>` + -              | Normal | ChooseWin                     |
-| `<Leader>` + s              | Normal | open Startify                 |
-| `<Leader>` + d              | Normal | open Dash                     |
-| `<Leader>` + cf             | Normal | coc Format                    |
-| `<Leader>` + fc             | Normal | fzf chage vim colorscheme     |
-| `<Leader>` + ff             | Normal | fzf find files                |
-| `<Leader>` + fr             | Normal | fzf rg search                 |
-| `<Leader>` + fw             | Normal | fzf rg search the cursor word |
-| `<Leader>` + fgc            | Normal | fzf gitcommits                |
-| `<Leader>` + fbc            | Normal | fzf gitbcommits               |
-| `<Leader>` + `<Leader>` + w | Normal | Easymotion jump to donw       |
-| `<Leader>` + `<Leader>` + b | Normal | Easymotion jump to up         |
-| `<Leader>` + `<Leader>` + f | Normal | Easymotion search for jump    |
-| `<Leader>` + gr             | Normal | vim-go GoRename               |
-| `<Leader>` + goi            | Normal | vim-go GoInfo                 |
-| `<Leader>` + god            | Normal | vim-go GoDoc                  |
-| `<Leader>` + gor            | Normal | vim-go GoRun                  |
-| `<Leader>` + gob            | Normal | vim-go GoBuild                |
-| `<Leader>` + got            | Normal | vim-go GoTest                 |
-| `<Leader>` + goc            | Normal | vim-go GoCoverage             |
-| `<Leader>` + gov            | Normal | vim-go GoDef                  |
+| Keys                        | Mode   | Description                           |
+| --------------------------- | ------ | ------------------------------------- |
+| `<Leader>` + number         | Normal | number[0-9] choose buffer             |
+| `<Leader>` + ca             | Normal | CocDiagnostics                        |
+| `<Leader>` + cc             | Normal | CocCommands                           |
+| `<Leader>` + ce             | Normal | CocExtensions                         |
+| `<Leader>` + cj             | Normal | Cocnext                               |
+| `<Leader>` + ck             | Normal | CocPrev                               |
+| `<Leader>` + co             | Normal | CocOutline                            |
+| `<Leader>` + cr             | Normal | CocResume                             |
+| `<Leader>` + cs             | Normal | CocIsymbols                           |
+| `<Leader>` + G              | Normal | open Goyo                             |
+| `<Leader>` + m              | Normal | open mundo                            |
+| `<Leader>` + w              | Normal | save file                             |
+| `<Leader>` + -              | Normal | ChooseWin                             |
+| `<Leader>` + s              | Normal | open Startify                         |
+| `<Leader>` + d              | Normal | open Dash                             |
+| `<Leader>` + p              | Normal | Edit the file which in plugins folder |
+| `<Leader>` + cf             | Normal | coc Format                            |
+| `<Leader>` + fc             | Normal | fzf chage vim colorscheme             |
+| `<Leader>` + ff             | Normal | fzf find files                        |
+| `<Leader>` + fr             | Normal | fzf rg search                         |
+| `<Leader>` + fv             | Normal | fzf Vista Finder                      |
+| `<Leader>` + b              | Normal | fzf find buffer                       |
+| `<Leader>` + fw             | Normal | fzf rg search the cursor word         |
+| `<Leader>` + fgc            | Normal | fzf gitcommits                        |
+| `<Leader>` + fbc            | Normal | fzf gitbcommits                       |
+| `<Leader>` + `<Leader>` + w | Normal | Easymotion jump to donw               |
+| `<Leader>` + `<Leader>` + b | Normal | Easymotion jump to up                 |
+| `<Leader>` + `<Leader>` + f | Normal | Easymotion search for jump            |
+| `<Leader>` + gr             | Normal | vim-go GoRename                       |
+| `<Leader>` + goi            | Normal | vim-go GoInfo                         |
+| `<Leader>` + god            | Normal | vim-go GoDoc                          |
+| `<Leader>` + gor            | Normal | vim-go GoRun                          |
+| `<Leader>` + gob            | Normal | vim-go GoBuild                        |
+| `<Leader>` + got            | Normal | vim-go GoTest                         |
+| `<Leader>` + goc            | Normal | vim-go GoCoverage                     |
+| `<Leader>` + gov            | Normal | vim-go GoDef                          |
 
 - LocalLeaderKey
 
 | Keys                 | Mode   | Description             |
 | -------------------- | ------ | ----------------------- |
-| `<LocalLeader>` + b  | Normal | fzf find buffer         |
 | `<LocalLeader>` + t  | Normal | Open Tagbar             |
 | `<LocalLeader>` + r  | Normal | QuickRun                |
 | `<LocalLeader>` + v  | Normal | Open Vista              |
@@ -365,11 +406,34 @@ git clone --depth=1 https://github.com/taigacute/ThinkVim.git ~/.config/nvim
 | `<LocalLeader>` + gl | Normal | Denite show all git log |
 | `<LocalLeader>` + gh | Normal | Denite show git branch  |
 
-- Denite.Menu
+- Denite
 
-| Keys                | Mode   | Description |
-| ------------------- | ------ | ----------- |
-| `<LocalLeader>` + m | Normal | Denite Menu |
+| Keys                | Mode                 | Description        |
+| ------------------- | -------------------- | ------------------ |
+| `<LocalLeader>` + m | Normal               | Denite Menu        |
+| <CR>                | Denite               | Doaction           |
+| i                   | Denite               | Open filter buffer |
+| d                   | Denite               | Delete             |
+| p                   | Denite               | Preview            |
+| st                  | Denite               | tabopen            |
+| sv                  | Denite               | Vsplit             |
+| si                  | Denite               | Split              |
+| `'`                 | Denite               | QuickMove          |
+| q                   | Denite               | Quit               |
+| r                   | Denite               | RedRaw             |
+| yy                  | Denite               | Yank               |
+| `<Esc>`             | Denite               | Quit               |
+| `<C-u>`             | Denite               | Restore Source     |
+| `<C-f>`             | Denite               | call Defx          |
+| `<C-x>`             | Denite               | Choose Action      |
+| `<Space>`           | Denite               | Toggle Select      |
+| `<Esc>`             | Denite Filter        | Quit               |
+| q                   | Denite Filter        | Quit               |
+| `<C-c>`             | Denite Filter        | Quit filter        |
+| `<kk>`              | Denite Filter insert | move window        |
+| `<kk>`              | Denite Filter normal | move window        |
+| `<jj>`              | Denite Filter insert | move window        |
+| `<jj>`              | Denite Filter normal | move window        |
 
 - Defx
 
@@ -432,6 +496,20 @@ git clone --depth=1 https://github.com/taigacute/ThinkVim.git ~/.config/nvim
 | vaf  | Go     | textobject  |
 | aF   | Python | textobject  |
 | iF   | Python | textobject  |
+
+## Backers
+
+Do you like ThinkVim? keep it alive by [donating funds](https://salt.bountysource.com/teams/thinkvim-taigacute)😘!
+
+<a href="https://github.com/dewoller" target="_blank" title="dewoller">
+  <img src="https://github.com/dewoller.png?size=64" width="64" height="64" alt="dewoller">
+</a>
+<a href="https://github.com/baIIoon" target="_blank" title="balloon">
+  <img src="https://github.com/baIIoon.png?size=64" width="64" height="64" alt="balloon">
+</a>
+<a href="https://github.com/gabriel-pena" target="_blank" title="gabriel-pena">
+  <img src="https://github.com/gabriel-pena.png?size=64" width="64" height="64" alt="gabriel-pena">
+</a>
 
 ## Thanks
 
