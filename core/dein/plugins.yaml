@@ -4,19 +4,15 @@
 # StartUp Plugins{{{
 - repo: Shougo/dein.vim
 - repo: honza/vim-snippets
+- repo: taigacute/spaceline.vim
 
-- repo: itchyny/lightline.vim
-  depends: vim-devicons
-  hook_add: source $VIMPATH/core/plugins/lightline.vim
-- repo: mengelbrecht/lightline-bufferline
-  hook_add: source $VIMPATH/core/plugins/lightline.vim
 #}}}
 
 # Core Plugins{{{
 - repo: neoclide/coc.nvim
   merge: 0
   rev: release
-  hook_add: source $VIMPATH/core/plugins/coc.vim
+  hook_add: source  $VIM_PATH/core/plugins/coc.vim
 # }}}
 
 
@@ -28,8 +24,8 @@
   on_cmd: Denite
   depends: vim-devicons
   hook_source: |
-        source  $VIMPATH/core/plugins/denite.vim
-        source  $VIMPATH/core/plugins/denite_menu.vim
+        source  $VIM_PATH/core/plugins/denite.vim
+        source  $VIM_PATH/core/plugins/denite_menu.vim
 
 - { repo: chemzqm/denite-git, on_source: denite.nvim }
 
@@ -48,33 +44,19 @@
 
 - repo: t9md/vim-choosewin
   on_map: { n: <Plug> }
-  hook_source: source  $VIMPATH/core/plugins/vim-choosewin.vim
+  hook_source: source  $VIM_PATH/core/plugins/vim-choosewin.vim
 
-- repo: ludovicchabant/vim-gutentags
-  if: executable('ctags')
+- repo: kizza/actionmenu.nvim
   on_path: .*
-  hook_source: source $VIMPATH/core/plugins/vim-gutentags.vim
-
-- repo: junegunn/goyo.vim
-  on_cmd: Goyo
-  hook_source: source $VIMPATH/core/plugins/goyo.vim
-
-- repo: junegunn/Limelight.vim
-  on_cmd: Limelight
 
 - repo: mhinz/vim-startify
   on_cmd: Startify
   depends: vim-devicons
-  hook_source: source  $VIMPATH/core/plugins/startify.vim
+  hook_source: source  $VIM_PATH/core/plugins/startify.vim
   hook_post_source: |
       function! StartifyEntryFormat()
         return 'WebDevIconsGetFileTypeSymbol(absolute_path) ." ". entry_path'
       endfunction
-
-
-- repo: mg979/vim-visual-multi
-  on_map: { n: <C-n> }
-  hook_add: let g:VM_leader = '<Space>'
 
 - repo: junegunn/vim-easy-align
   on_ft: [vim,json,go,html,js,jsx,py,css,less,tmpl,toml,xml,sql,Dockerfile]
@@ -112,7 +94,7 @@
 
 - repo: liuchengxu/vim-which-key
   on_cmd: [Whichkey, Whichkey!]
-  hook_source: source  $VIMPATH/core/plugins/whichkey.vim
+  hook_source: source  $VIM_PATH/core/plugins/whichkey.vim
   hook_post_source: |
         call which_key#register('<Space>', 'g:which_key_map')
         call which_key#register(';', 'g:which_key_localmap')
@@ -133,28 +115,15 @@
 # File manager{{{
 - repo: Shougo/defx.nvim
   on_cmd: Defx
-  hook_source: source  $VIMPATH/core/plugins/defx.vim
+  hook_source: source  $VIM_PATH/core/plugins/defx.vim
 
 - repo: kristijanhusak/defx-git
   on_source: defx.nvim
-  hook_source: source  $VIMPATH/core/plugins/defx-git.vim
+  hook_source: source  $VIM_PATH/core/plugins/defx-git.vim
 
 - repo: kristijanhusak/defx-icons
   on_source: defx.nvim
 
-- repo: scrooloose/nerdtree
-  on_map: { n: <Plug> }
-  trusted: 1
-  hook_post_source: source  $VIMPATH/core/plugins/nerdtree.vim
-
-- repo: tiagofumo/vim-nerdtree-syntax-highlight
-  hook_add: |
-    let g:NERDTreeSyntaxDisableDefaultExtensions = 1
-    let g:NERDTreeDisableExactMatchHighlight = 1
-    let g:NERDTreeDisablePatternMatchHighlight = 1
-    let g:NERDTreeSyntaxEnabledExtensions = ['go', 'py', 'html', 'css', 'jsx', 'js', 'vim','json','md']
-
-- { repo: Xuyuanp/nerdtree-git-plugin, on_source: nerdtree }
 # }}}
 
 # Search Plugins{{{
@@ -165,22 +134,25 @@
 - repo: junegunn/fzf.vim
   depends: fzf
   on_cmd: [Colors,Rg,Buffers]
-  hook_add: source $VIMPATH/core/plugins/fzf.vim
+  on_func: Fzf_dev
+  hook_source: source  $VIM_PATH/core/plugins/fzf.vim
 
 # }}}
 
 # Git Plugins{{{
-- { repo: tpope/vim-fugitive, on_path: .* }
+- { repo: taigacute/magit.vim, on_cmd: Magit }
+
+- { repo: lambdalisue/gina.vim, on_cmd: Gina }
 
 - repo: chemzqm/vim-easygit
-  on_cmd: [Gcd, Glcd, commit, Gblame, Gstatus, Gdiff, Gbrowse, Gstatus, Gpush]
+  on_cmd: [Gcd, Glcd, Gcommit, Gblame, Gstatus, Gdiff, Gbrowse, Gstatus, Gpush]
   hook_source: let g:easygit_enable_command = 1
 
 
 # use coc-git instead of vim-gitgutter
 # - repo: airblade/vim-gitgutter
 #   on_path: .*
-#   hook_source: source  $VIMPATH/core/plugins/vim-gitgutter.vim
+#   hook_source: source ~/.config/nvim/core/plugins/vim-gitgutter.vim
 
 # }}}
 
@@ -208,7 +180,7 @@
 
 - repo: fatih/vim-go
   on_ft: go
-  hook_source: source  $VIMPATH/core/plugins/vim-go.vim
+  hook_source: source  $VIM_PATH/core/plugins/vim-go.vim
 
 - repo: tpope/vim-markdown
   on_ft: markdown
@@ -225,23 +197,24 @@
 # }}}
 
 # Coding{{{
-- { repo: tyru/caw.vim, on_map: { nx: <Plug> }}
+- repo: tyru/caw.vim
+  on_map: { nx: <Plug> }
 
 - repo: sbdchd/neoformat
   on_cmd: [Neoformat,Neoformat!]
-  hook_source: source  $VIMPATH/core/plugins/neoformat.vim
+  hook_source: source  $VIM_PATH/core/plugins/neoformat.vim
 
 - repo: Yggdroot/indentLine
   on_ft: [python,html,css,vim,javascript,jsx,javascript.jsx,vue]
-  hook_source: source  $VIMPATH/core/plugins/indentline.vim
+  hook_source: source $VIM_PATH/core/plugins/indentline.vim
 
 - repo: liuchengxu/vista.vim
   on_cmd: [Vista,Vista!,Vista!!]
-  hook_source: source  $VIMPATH/core/plugins/vista.vim
+  hook_source: source  $VIM_PATH/core/plugins/vista.vim
 
 - repo: majutsushi/tagbar
   on_cmd: TagbarToggle
-  hook_source: source  $VIMPATH/core/plugins/tagbar.vim
+  hook_source: source  $VIM_PATH/core/plugins/tagbar.vim
 
 - repo: mattn/emmet-vim
   on_ft: [html,css,jsx,javascript,javascript.jsx]
@@ -269,9 +242,24 @@
         let g:echodoc#type = "virtual"
 
 # - repo: w0rp/ale
-#   hook_add: source  $VIMPATH/core/plugins/vim-ale.vim
+#   hook_add: source ~/.config/nvim/core/plugins/vim-ale.vim
 
 # }}}
+
+# Writing{{{
+- repo: iamcco/markdown-preview.nvim
+  on_ft: [markdown,pandoc.markdown,rmd]
+  build: cd app & yarn install
+  hook_source: |
+      let g:mkdp_auto_start = 1
+
+- repo: junegunn/goyo.vim
+  on_cmd: Goyo
+  hook_source: source  $VIM_PATH/core/plugins/goyo.vim
+
+- repo: junegunn/Limelight.vim
+  on_cmd: Limelight
+#}}}
 
 # TextObjectOperator{{{
 - { repo: AndrewRadev/splitjoin.vim, on_map: { n: <Plug>Splitjoin }}
@@ -296,3 +284,8 @@
   hook_add:  let g:textobj_multiblock_no_default_key_mappings = 1
 
 # }}}
+
+# CommentPLuins too old, or find much better plugins{{{
+# - repo: rhysd/vim-operator-surround
+#   depends: [vim-operator-user, vim-textobj-multiblock]
+#   on_map:  { vnx : <Plug> }

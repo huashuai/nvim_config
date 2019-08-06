@@ -19,6 +19,7 @@ let g:which_key_map = {
       \ '-' : 'choose window by {prompt char}' ,
       \ 'd' : 'search cursor word on Dash.app' ,
       \ 'G' : 'distraction free writing' ,
+      \ 'F' : 'find current file' ,
       \ 'f' : {
             \ 'name' : '+search {files cursorword word outline}',
             \ 'b' : 'buffer list',
@@ -32,6 +33,18 @@ let g:which_key_map = {
       \ 'w' : 'save file',
       \ 's' : 'open startify screen',
       \ 'p' : 'edit pluginsconfig {filename}',
+      \ 'x' : 'coc cursors operate',
+      \ 'g'  :{
+                \'name':'+git-operate',
+                \ 'd'    : 'Gdiff',
+                \ 'c'    : 'Gcommit',
+                \ 'b'    : 'Gblame',
+                \ 'B'    : 'Gbrowse',
+                \ 'S'    : 'Gstatus',
+                \ 'p'    : 'git push',
+                \ 'l'    : 'GitLogAll',
+                \ 'h'    : 'GitBranch',
+                \},
       \ 'c'    : {
               \ 'name' : '+coc list' ,
               \ 'a'    : 'coc CodeActionSelected',
@@ -46,6 +59,7 @@ let g:which_key_map = {
               \ 's'    : 'coc Isymbols',
               \ 'g'    : 'coc Gitstatus',
               \ 'f'    : 'coc Format',
+              \ 'm'    : 'coc search word to multiple cursors',
               \ },
       \ 'q' : {
             \ 'name' : '+coc-quickfix',
@@ -57,17 +71,9 @@ let g:which_key_map = {
             \ 'e' : 'edit tab',
             \ 'm' : 'move tab',
             \ },
-      \ 'g' : {
-            \ 'name' : '+golang-toolkit',
-            \ 'd'    : 'go describe',
-            \ 'c'    : 'go callees',
-            \ 'C'    : 'go callers',
-            \ 's'    : 'go callstack',
-            \ 'i'    : 'go impl',
-            \ },
       \ }
 let g:which_key_map[' '] = {
-      \ 'name' : '+Easymotion ' ,
+      \ 'name' : '+easymotion-jumpto-word ' ,
       \ 'b' : ['<plug>(easymotion-b)' , 'beginning of word backward'],
       \ 'f' : ['<plug>(easymotion-f)' , 'find {char} to the left'],
       \ 'w' : ['<plug>(easymotion-w)' , 'beginning of word forward'],
@@ -76,26 +82,17 @@ let g:which_key_map[' '] = {
 let g:which_key_localmap ={
       \ 'name' : '+LocalLeaderKey'  ,
       \ 't'    : 'open tagbar show outlien',
-      \ 'e'    : 'open nerdtree',
       \ 'v'    : 'open vista show outline',
       \ 'r'    : 'quick run',
       \ 'm'    : 'toolkit Menu',
-      \ 'd'    : {
-                \'name':'+todo-app',
-                \ 'a' : 'todo add',
-                \},
-      \ 'g'  :{
-                \'name':'+ git-operate',
-                \ 'a'    : 'Gadd',
-                \ 'd'    : 'Gdiff',
-                \ 'c'    : 'Gcommit',
-                \ 'b'    : 'Gblame',
-                \ 'B'    : 'Gbrowse',
-                \ 'S'    : 'Gstatus',
-                \ 'p'    : 'Gpush',
-                \ 'l'    : 'GitLogAll',
-                \ 'h'    : 'GitBranch',
-                \}
+      \ 'g' : {
+            \ 'name' : '+golang-toolkit',
+            \ 'i'    : 'go impl',
+            \ 'd'    : 'go describe',
+            \ 'c'    : 'go callees',
+            \ 'C'    : 'go callers',
+            \ 's'    : 'go callstack',
+            \ },
       \ }
 
 let g:which_key_rsbgmap = {
@@ -106,6 +103,7 @@ let g:which_key_rsbgmap = {
       \ 'g'    : 'coc gitnextchunk',
       \ ']'    : 'jump prefunction-golang',
       \ }
+
 
 let g:which_key_lsbgmap = {
       \ 'name' : '+LeftSquarebrackets',
