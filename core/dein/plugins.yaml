@@ -5,6 +5,7 @@
 - repo: Shougo/dein.vim
 - repo: honza/vim-snippets
 - repo: taigacute/spaceline.vim
+- repo: drewtempelmeyer/palenight.vim
 
 #}}}
 
@@ -62,11 +63,11 @@
   on_ft: [vim,json,go,html,js,jsx,py,css,less,tmpl,toml,xml,sql,Dockerfile]
 
 
-- repo: yuttie/comfortable-motion.vim
-  on_func: comfortable_motion#flick
-  hook_add: |
-        let g:comfortable_motion_no_default_key_mappings = 1
-        let g:comfortable_motion_impulse_multiplier = 1
+#- repo: yuttie/comfortable-motion.vim
+  #on_func: comfortable_motion#flick
+  #hook_add: |
+        #let g:comfortable_motion_no_default_key_mappings = 1
+        #let g:comfortable_motion_impulse_multiplier = 1
 
 - repo: rizzatti/dash.vim
   on_map: { n: <Plug> }
