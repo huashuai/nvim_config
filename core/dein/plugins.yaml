@@ -6,7 +6,8 @@
 - repo: honza/vim-snippets
 - repo: taigacute/spaceline.vim
 - repo: drewtempelmeyer/palenight.vim
-
+- repo: bagrat/vim-buffet
+  hook_add: source $VIM_PATH/core/plugins/buffet.vim
 #}}}
 
 # Core Plugins{{{
@@ -27,7 +28,6 @@
   hook_source: |
         source  $VIM_PATH/core/plugins/denite.vim
         source  $VIM_PATH/core/plugins/denite_menu.vim
-
 - { repo: chemzqm/denite-git, on_source: denite.nvim }
 
 # }}}
@@ -53,17 +53,13 @@
       function! StartifyEntryFormat()
         return 'WebDevIconsGetFileTypeSymbol(absolute_path) ." ". entry_path'
       endfunction
-
 - repo: junegunn/vim-easy-align
   on_ft: [vim,json,go,html,js,jsx,py,css,less,tmpl,toml,xml,sql,Dockerfile]
-
-
-#- repo: yuttie/comfortable-motion.vim
-  #on_func: comfortable_motion#flick
-  #hook_add: |
-        #let g:comfortable_motion_no_default_key_mappings = 1
-        #let g:comfortable_motion_impulse_multiplier = 1
-
+- repo: yuttie/comfortable-motion.vim
+  on_func: comfortable_motion#flick
+  hook_add: |
+        let g:comfortable_motion_no_default_key_mappings = 1
+        let g:comfortable_motion_impulse_multiplier = 1
 - repo: rizzatti/dash.vim
   on_map: { n: <Plug> }
   hook_add: |
@@ -73,7 +69,6 @@
         \ 'html': ['html', 'svg'],
         \ 'go' : 'Go',
         \}
-
 - repo: thinca/vim-quickrun
   on_cmd: QuickRun
   hook_add: |
@@ -83,7 +78,6 @@
             \   },
             \}
         let g:quickrun_no_default_key_mappings = 1
-
 - {repo: simnalamburt/vim-mundo , on_map: { n: <Plug> } }
 
 - {repo: tpope/vim-repeat , on_map: .* }
@@ -96,7 +90,6 @@
         call which_key#register(';', 'g:which_key_localmap')
         call which_key#register(']', 'g:which_key_rsbgmap')
         call which_key#register('[', 'g:which_key_lsbgmap')
-
 - repo: easymotion/vim-easymotion
   on_map: { n: <Plug> }
   hook_source: |
@@ -105,7 +98,6 @@
         let g:EasyMotion_keys = 'fjdkswbeoavn'
         let g:EasyMotion_smartcase = 1
         let g:EasyMotion_use_smartsign_us = 1
-
 # }}}
 
 # File manager{{{
@@ -189,7 +181,6 @@
           \ 'js=javascript',
           \ 'go',
           \]
-
 # }}}
 
 # Coding{{{
@@ -226,7 +217,6 @@
             \      'extends' : 'jsx',
             \  },
         \}
-
 - repo: luochen1990/rainbow
   on_ft: [python,javascript,jsx,javascript.jsx,html,css,go,vim,toml]
   hook_source: let g:rainbow_active = 1
@@ -236,7 +226,6 @@
   hook_source: |
         call echodoc#enable()
         let g:echodoc#type = "virtual"
-
 # - repo: w0rp/ale
 #   hook_add: source ~/.config/nvim/core/plugins/vim-ale.vim
 
@@ -248,7 +237,6 @@
   hook_post_source: 'call mkdp#util#install()'
   hook_source: |
       let g:mkdp_auto_start = 1
-
 - repo: junegunn/goyo.vim
   on_cmd: Goyo
   hook_source: source  $VIM_PATH/core/plugins/goyo.vim
