@@ -45,6 +45,19 @@
     "python.autoComplete.addBrackets": true,
     "python.jediEnabled": false,
     "python.analysis.disabled": ["W0201"],
+    //imselect
+    "imselect.enableStatusItem": false,
+    //multiple curssors
+    "cursors.nextKey": "<C-n>",
+    "cursors.previousKey": "<C-p>",
+    "cursors.cancelKey": "<esc>",
+    // coc-explorer
+    "explorer.icon.expanded": "▾",
+    "explorer.icon.shrinked": "▸",
+    "explorer.icon.enableNerdfont": true,
+    "explorer.keyMappings": {
+        "l" : "expandOrShrink"
+    },
     // eslint
     "eslint.filetypes": ["javascript", "javascript.jsx", "javascriptreact"],
     "eslint.autoFix": true,
