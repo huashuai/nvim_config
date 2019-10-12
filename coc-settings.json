@@ -56,6 +56,7 @@
     // coc-explorer
     "explorer.icon.expanded": "▾",
     "explorer.icon.shrinked": "▸",
+    "explorer.width": 30,
     "explorer.icon.enableNerdfont": true,
     "explorer.keyMappings": {
         "l" : "expandOrShrink"
