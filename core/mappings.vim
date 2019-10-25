@@ -49,6 +49,7 @@ vnoremap k gk
 nmap <leader>tt :tabnew
 nmap <leader>tn :tabnew<cr>
 nmap <leader>te :tabedit
+nmap <leader>tc :tabclose<cr>
 nmap <leader>tm :tabmove
 
 "buffer
