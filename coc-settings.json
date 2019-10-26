@@ -16,8 +16,8 @@
     "diagnostic.refreshOnInsertMode": true,
     //git
     "git.enableGutters": true,
-    "git.addGlameToBufferVar": true,
-    "git.addGlameToVirtualText": true,
+    "git.addGlameToBufferVar": false,
+    "git.addGlameToVirtualText": false,
     "git.virtualTextPrefix": " ❯❯❯ ",
     "git.addedSign.hlGroup": "GitGutterAdd",
     "git.changedSign.hlGroup": "GitGutterChange",
@@ -45,6 +45,13 @@
     "python.autoComplete.addBrackets": true,
     "python.jediEnabled": false,
     "python.analysis.disabled": ["W0201"],
+    "python.linting.flake8Path": "/apps/python3/bin/flake8",
+    "python.linting.flake8Args": [
+        "--ignore=W0201"
+    ],
+    "python.linting.pylintArgs": [
+        "--disable=W0201"
+    ],
     //imselect
     "imselect.enableStatusItem": false,
     //multiple curssors
@@ -67,72 +74,5 @@
     "eslint.autoFixOnSave": true,
     // add your languageServer into this list
     "languageserver": {
-        "python": {
-            "command": "python3",
-            "args": [
-                "-mpyls",
-                "-vv",
-                "--log-file",
-                "/tmp/lsp_python.log"
-            ],
-            "trace.server": "verbose",
-            "filetypes": [
-                "python"
-            ],
-            "settings": {
-                "pyls": {
-                    "enable": true,
-                    "trace": {
-                        "server": "verbose"
-                    },
-                    "commandPath": "",
-                    "configurationSources": [
-                        "pycodestyle"
-                    ],
-                    "plugins": {
-                        "jedi_completion": {
-                            "enabled": true
-                        },
-                        "jedi_hover": {
-                            "enabled": true
-                        },
-                        "jedi_references": {
-                            "enabled": true
-                        },
-                        "jedi_signature_help": {
-                            "enabled": true
-                        },
-                        "jedi_symbols": {
-                            "enabled": true,
-                            "all_scopes": true
-                        },
-                        "mccabe": {
-                            "enabled": true,
-                            "threshold": 15
-                        },
-                        "preload": {
-                            "enabled": true
-                        },
-                        "pycodestyle": {
-                            "enabled": true
-                        },
-                        "pydocstyle": {
-                            "enabled": false,
-                            "match": "(?!test_).*\\.py",
-                            "matchDir": "[^\\.].*"
-                        },
-                        "pyflakes": {
-                            "enabled": true
-                        },
-                        "rope_completion": {
-                            "enabled": true
-                        },
-                        "yapf": {
-                            "enabled": true
-                        }
-                    }
-                }
-            }
-        }
     }
 }

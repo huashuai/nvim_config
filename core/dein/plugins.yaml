@@ -4,7 +4,6 @@
 # StartUp Plugins{{{
 - repo: Shougo/dein.vim
 - repo: taigacute/spaceline.vim
-- repo: drewtempelmeyer/palenight.vim
 - repo: bagrat/vim-buffet
   hook_add: source $VIM_PATH/layers/+ui/buffet/config.vim
 - repo: drewtempelmeyer/palenight.vim
